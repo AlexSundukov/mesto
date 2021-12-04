@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./normalize.css">
+</head>
+<body class=page>
+    <div class="page__container">
+        <div class="popup">
+            <form class="popup__container">
+                <input type="image" src="./images/Close.svg" class="popup__close">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text" class="popup__name">
+                <input type="text" class="popup__description">
+                <button type="submit" class="popup__save">Сохранить</button>
+            </form>
+        </div>
+        <header class="header">
+            <img src="./images/Logo.svg" alt="Логотип" class="header__logo">
+            <div class="header__line"></div>
+        </header>
+        <main>
+            <section class="profile">
+                <img src="./images/Avatar.jpg" alt="Аватар профиля" class="profile__avatar">
+                <div class="profile__info">
+                    <p class="profile__name">Жак-Ив Кусто</p>
+                    <p class="profile__description">Исследователь океана</p>
+                </div>
+                <input type="image" src="./images/Edit-button.svg" class="profile__edit-button">
+                <input type="image" src="./images/Add-button.svg" class="profile__add-button">
+            </section>
+            <section class="elements">
+                <div class="element">
+                    <img src="./images/Karachevsk.jpg" alt="Карачаевск" class="element__image">
+                    <div class="element__group">
+                        <p class="element__name">Карачаевск</p>
+                        <input type="image" src="./images/Like.svg" class="element__like">
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
+                    <div class="element__group">
+                        <p class="element__name">Гора Эльбрус</p>
+                        <input type="image" src="./images/Like.svg" class="element__like">
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/Dombai.png" alt="Домбай" class="element__image">
+                    <div class="element__group">
+                        <p class="element__name">Домбай</p>
+                        <input type="image" src="./images/Like.svg" class="element__like">
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
+                    <div class="element__group">
+                        <p class="element__name">Гора Эльбрус</p>
+                        <input type="image" src="./images/Like.svg" class="element__like">
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/Dombai.png" alt="Домбай" class="element__image">
+                    <div class="element__group">
+                        <p class="element__name">Домбай</p>
+                        <input type="image" src="./images/Like.svg" class="element__like">
+                    </div>
+                </div>
+                <div class="element">
+                    <img src="./images/Karachevsk.jpg" alt="Карачаевск" class="element__image">
+                    <div class="element__group">
+                        <p class="element__name">Карачаево-Черкесия</p>
+                        <input type="image" src="./images/Like.svg" class="element__like">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2021 Александр Сундуков</p>
+        </footer>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
