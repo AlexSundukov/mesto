@@ -6,7 +6,7 @@
 * CSS
 * JavaScript
 
-###Ссылка на проект
+### Ссылка на проект
 
 *https://ambrosius969.github.io/mesto/
 
