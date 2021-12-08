@@ -1,10 +1,9 @@
 .popup__container {
     display: flex;
+    align-self: center;
+    position: relative;
+    margin: 0 auto;
     flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
     width: 430px;
     border-radius: 10px;

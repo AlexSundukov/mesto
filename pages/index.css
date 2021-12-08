@@ -1,5 +1,7 @@
+/* Страница и шрифт */
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__container/page__container.css);
+@import url(../vendor/fonts/fonts.css);
 /* Стили попапа */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__opened/popup__opened.css);
