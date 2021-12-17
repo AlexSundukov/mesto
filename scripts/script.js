@@ -2,20 +2,19 @@ let editButton = document.querySelector('.profile__edit-button')
 let popup = document.querySelector('.popup')
 let popupForm = document.querySelector('.popup__container')
 let popupClose = document.querySelector('.popup__close')
-let popupSave = document.querySelector('.popup__save')
 let profileName = document.querySelector('.profile__name')
 let profileDesc = document.querySelector('.profile__description')
-let popupName = document.querySelector('.popup__name')
-let popupDesc = document.querySelector('.popup__description')
+let popupName = document.querySelector('.popup__change_name')
+let popupDesc = document.querySelector('.popup__change_description')
 
 function openPopup() {
-    popup.classList.add('popup_opened');
+    popup.classList.add('popup__opened');
     popupName.value = profileName.textContent;
     popupDesc.value = profileDesc.textContent;
 }
 
 function closePopup() {
-    popup.classList.remove('popup_opened');
+    popup.classList.remove('popup__opened');
 }
 
 function popupSubmit(evt) {

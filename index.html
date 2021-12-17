@@ -4,23 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body class=page>
+<body class="page">
     <div class="page__container">
-        <div class="popup">
-            <form class="popup__container">
-                <input type="image" alt="Кнопка закрытия окна для редактирования профиля" src="./images/Close.svg" class="popup__close">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" class="popup__name">
-                <input type="text" class="popup__description">
-                <button type="submit" class="popup__save">Сохранить</button>
-            </form>
-        </div>
         <header class="header">
             <img src="./images/Logo.svg" alt="Логотип" class="header__logo">
-            <div class="header__line"></div>
         </header>
         <main>
             <section class="profile">
@@ -29,54 +18,54 @@
                     <div class="profile__info">
                         <div class="profile__edit-container">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <input type="image" alt="Кнопка для редактирования профиля" src="./images/Edit-button.svg" class="profile__edit-button">
+                            <button type="button" class="profile__edit-button"></button>
                         </div>
                         <p class="profile__description">Исследователь океана</p>
                     </div>
                 </div>
-                <input type="image" alt="Кнопка добавления контента в профиль" src="./images/Add-button.svg" class="profile__add-button">
+                <button type="button" class="profile__add-button"></button>
             </section>
             <section class="elements">
                 <div class="element">
                     <img src="./images/Karachevsk.jpg" alt="Карачаевск" class="element__image">
                     <div class="element__group">
-                        <p class="element__name">Карачаевск</p>
-                        <input type="image" alt="Кнопка лайка" src="./images/Like.svg" class="element__like">
+                        <h2 class="element__name">Карачаевск</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
                     <div class="element__group">
-                        <p class="element__name">Гора Эльбрус</p>
-                        <input type="image" alt="Кнопка лайка" src="./images/Like.svg" class="element__like">
+                        <h2 class="element__name">Гора Эльбрус</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Dombai.png" alt="Домбай" class="element__image">
                     <div class="element__group">
-                        <p class="element__name">Домбай</p>
-                        <input type="image" alt="Кнопка лайка" src="./images/Like.svg" class="element__like">
+                        <h2 class="element__name">Домбай</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
                     <div class="element__group">
-                        <p class="element__name">Гора Эльбрус</p>
-                        <input type="image" alt="Кнопка лайка" src="./images/Like.svg" class="element__like">
+                        <h2 class="element__name">Гора Эльбрус</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Dombai.png" alt="Домбай" class="element__image">
                     <div class="element__group">
-                        <p class="element__name">Домбай</p>
-                        <input type="image" alt="Кнопка лайка" src="./images/Like.svg" class="element__like">
+                        <h2 class="element__name">Домбай</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Karachevsk.jpg" alt="Карачаевск" class="element__image">
                     <div class="element__group">
-                        <p class="element__name">Карачаево-Черкесия</p>
-                        <input type="image" alt="Кнопка лайка" src="./images/Like.svg" class="element__like">
+                        <h2 class="element__name">Карачаево-Черкесия</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
             </section>
@@ -84,6 +73,17 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2021 Александр Сундуков</p>
         </footer>
+        <div class="popup">
+            <div class="popup__window">
+                <button type="button" class="popup__close"></button>
+                <form name="Popup" class="popup__container">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input type="text" name="name" class="popup__change popup__change_name">
+                    <input type="text" name="description" class="popup__change popup__change_description">
+                    <button type="submit" class="popup__save">Сохранить</button>
+                </form>
+            </div>
+        </div>
     </div>
     <script src="./scripts/script.js"></script>
 </body>

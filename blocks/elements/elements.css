@@ -19,5 +19,6 @@
     .elements {
         max-width: 282px;
         width: 100%;
+        padding-top: 36px;
     }
 }

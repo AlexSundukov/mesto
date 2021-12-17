@@ -1,15 +1,16 @@
 /* Страница и шрифт */
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__container/page__container.css);
-@import url(../vendor/fonts/fonts.css);
 /* Стили попапа */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__opened/popup__opened.css);
+@import url(../blocks/popup/__window/popup__window.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__name/popup__name.css);
-@import url(../blocks/popup/__description/popup__description.css);
+@import url(../blocks/popup/__change/popup__change.css);
 @import url(../blocks/popup/__save/popup__save.css);
 /* Шапка */
 @import url(../blocks/header/header.css);
