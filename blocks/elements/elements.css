@@ -11,14 +11,12 @@
 @media screen and (max-width: 900px) {
     .elements {
         max-width: 581px;
-        width: 100%;
     }
 }
 
 @media screen and (max-width: 600px) {
     .elements {
         max-width: 282px;
-        width: 100%;
         padding-top: 36px;
     }
 }

@@ -1,12 +1,5 @@
 .popup__change:nth-child(2n) {
-    width: 358px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-    margin: 0 auto;
     padding: 54px 0 13px;
-    font-size: 14px;
-    line-height: 17px;  
 }
 
 .popup__change {
@@ -21,15 +14,14 @@
 }
 
 @media screen and (max-width: 560px) {
-    .popup__change:nth-child(2n) {
+    .popup__change {
         width: 238px;
+    }
+    
+    .popup__change:nth-child(2n) {
         padding: 75px 0 13px;
     }
 }
 
-@media screen and (max-width: 560px) {
-    .popup__change {
-        width: 238px;
-    }
-}
+
 

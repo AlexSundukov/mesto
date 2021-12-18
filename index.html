@@ -18,54 +18,54 @@
                     <div class="profile__info">
                         <div class="profile__edit-container">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button type="button" class="profile__edit-button"></button>
+                            <button type="button" aria-label="Редактирование профиля" class="profile__edit-button"></button>
                         </div>
                         <p class="profile__description">Исследователь океана</p>
                     </div>
                 </div>
-                <button type="button" class="profile__add-button"></button>
+                <button type="button" aria-label="Редактирование контента профиля" class="profile__add-button"></button>
             </section>
             <section class="elements">
                 <div class="element">
                     <img src="./images/Karachevsk.jpg" alt="Карачаевск" class="element__image">
                     <div class="element__group">
                         <h2 class="element__name">Карачаевск</h2>
-                        <button type="button" class="element__like"></button>
+                        <button type="button" aria-label="Лайк" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
                     <div class="element__group">
                         <h2 class="element__name">Гора Эльбрус</h2>
-                        <button type="button" class="element__like"></button>
+                        <button type="button" aria-label="Лайк" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Dombai.png" alt="Домбай" class="element__image">
                     <div class="element__group">
                         <h2 class="element__name">Домбай</h2>
-                        <button type="button" class="element__like"></button>
+                        <button type="button" aria-label="Лайк" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
                     <div class="element__group">
                         <h2 class="element__name">Гора Эльбрус</h2>
-                        <button type="button" class="element__like"></button>
+                        <button type="button" aria-label="Лайк" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Dombai.png" alt="Домбай" class="element__image">
                     <div class="element__group">
                         <h2 class="element__name">Домбай</h2>
-                        <button type="button" class="element__like"></button>
+                        <button type="button" aria-label="Лайк" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img src="./images/Karachevsk.jpg" alt="Карачаевск" class="element__image">
                     <div class="element__group">
                         <h2 class="element__name">Карачаево-Черкесия</h2>
-                        <button type="button" class="element__like"></button>
+                        <button type="button" aria-label="Лайк" class="element__like"></button>
                     </div>
                 </div>
             </section>
@@ -75,11 +75,11 @@
         </footer>
         <div class="popup">
             <div class="popup__window">
-                <button type="button" class="popup__close"></button>
-                <form name="Popup" class="popup__container">
+                <button type="button" aria-label="Кнопка закрытия" class="popup__close"></button>
+                <form name="Edit popup" class="popup__container">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" name="name" class="popup__change popup__change_name">
-                    <input type="text" name="description" class="popup__change popup__change_description">
+                    <input type="text" name="name" placeholder="Введите имя профиля" class="popup__change popup_changed_name">
+                    <input type="text" name="description" placeholder="Введите описание профиля" class="popup__change popup_changed_description">
                     <button type="submit" class="popup__save">Сохранить</button>
                 </form>
             </div>

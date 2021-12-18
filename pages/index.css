@@ -5,7 +5,7 @@
 @import url(../blocks/page/__container/page__container.css);
 /* Стили попапа */
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__opened/popup__opened.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__window/popup__window.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close/popup__close.css);
@@ -15,7 +15,6 @@
 /* Шапка */
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__line/header__line.css);
 /* Профиль */
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__container/profile__container.css);
