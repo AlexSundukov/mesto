@@ -4,8 +4,8 @@ let popupForm = document.querySelector('.popup__container')
 let popupClose = document.querySelector('.popup__close')
 let profileName = document.querySelector('.profile__name')
 let profileDesc = document.querySelector('.profile__description')
-let popupName = document.querySelector('.popup_changed_name')
-let popupDesc = document.querySelector('.popup_changed_description')
+let popupName = document.querySelector('.popup__change_edit_name')
+let popupDesc = document.querySelector('.popup__change_edit_description')
 
 function openPopup() {
     popup.classList.add('popup_opened');
