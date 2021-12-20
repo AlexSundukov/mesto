@@ -6,6 +6,7 @@
     width: 150px;
     height: 50px;
     border: 2px solid #FFFFFF;
+    outline: none;
     border-radius: 2px;
     padding: 0;
     margin-top: 35px;
@@ -20,5 +21,6 @@
     .profile__add-button {
         margin: 36px auto 0;
         width: 282px;
+        background-size: 16px;
     }
 }
