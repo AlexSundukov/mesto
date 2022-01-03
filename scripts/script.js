@@ -1,31 +1,133 @@
-let editButton = document.querySelector('.profile__edit-button')
-let popup = document.querySelector('.popup')
-let popupForm = document.querySelector('.popup__container')
-let popupClose = document.querySelector('.popup__close')
-let profileName = document.querySelector('.profile__name')
-let profileDesc = document.querySelector('.profile__description')
-let popupName = document.querySelector('.popup__change_edit_name')
-let popupDesc = document.querySelector('.popup__change_edit_description')
+// Переменные edit
+const editButton = document.querySelector('.profile__edit-button')
+const popupSave = document.querySelector('.popup__button_save')
+const popupName = document.querySelector('.popup__change_edit_name')
+const popupDesc = document.querySelector('.popup__change_edit_description')
+const profileName = document.querySelector('.profile__name')
+const profileDesc = document.querySelector('.profile__description')
+const popupEdit = document.querySelector('.popup_edit')
+const popupEditContainer = document.querySelector('.popup__container_edit')
+const popupForm = document.querySelector('.popup__container_edit')
+const popupEditClose = document.querySelector('.popup__close_edit')
+// Переменные add
+const addButton = document.querySelector('.profile__add-button')
+const popupAdd = document.querySelector('.popup_add')
+const popupAddContainer = document.querySelector('.popup__container_add')
+const popupAddPlace = document.querySelector('.popup__change_add_place')
+const popupAddImage = document.querySelector('.popup__change_add_image')
+const popupAddClose = document.querySelector('.popup__close_add')
+// Переменные image
+const popupImage = document.querySelector('.popup_image')
+const popupCapture = document.querySelector('.popup__image')
+const captureName = document.querySelector('.popup__caption-image')
+const popupImageClose = document.querySelector('.popup__close_image')
+// Переменные карточек 
+const elements = document.querySelector('.elements')
+const elementTemplate = document.querySelector('.element-template')
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+  ]; 
 
-function openPopup() {
-    popup.classList.add('popup_opened');
-    popupName.value = profileName.textContent;
-    popupDesc.value = profileDesc.textContent;
+// Изменение профиля
+function openPopup(popup) {
+    popup.classList.add('popup_opened')
 }
 
-function closePopup() {
-    popup.classList.remove('popup_opened');
+editButton.addEventListener('click', () => {
+    openPopup(popupEdit)
+    popupName.value = profileName.textContent
+    popupDesc.value = profileDesc.textContent
+  });
+
+function closePopup(popup) {
+    popup.classList.remove('popup_opened')
 }
 
-function popupSubmit(evt) {
-    evt.preventDefault();
-    profileName.textContent = popupName.value;
-    profileDesc.textContent = popupDesc.value;
-    closePopup();
+popupEditClose.addEventListener('click', () => {
+    closePopup(popupEdit)
+})
+
+function changeProfile(evt) {
+    evt.preventDefault()
+    profileName.textContent = popupName.value
+    profileDesc.textContent = popupDesc.value
+    closePopup(popupEdit)
 }
 
+popupEditContainer.addEventListener('submit', changeProfile)
 
+// Изменение контента профиля
+function addContent(evt) {
+  evt.preventDefault()
+  newCardName = popupAddPlace.value
+  newCardLink = popupAddImage.value
+  elements.prepend(addElements(newCardName, newCardLink))
+  closePopup(popupAdd)
+}
 
-editButton.addEventListener('click', openPopup);
-popupClose.addEventListener('click', closePopup);
-popupForm.addEventListener('submit', popupSubmit);
+popupAddContainer.addEventListener('submit', addContent)
+
+addButton.addEventListener('click', () => {
+    openPopup(popupAdd)
+    popupAddPlace.value = ''
+    popupAddImage.value = ''
+})
+
+popupAddClose.addEventListener('click', () => {
+    closePopup(popupAdd)
+}) 
+
+// Карточки и попап image
+function addElements(nameValue, linkValue) {
+    const cardTemplate = elementTemplate.content.querySelector('.element').cloneNode(true)
+    const cardImage = cardTemplate.querySelector('.element__image')
+    const cardName = cardTemplate.querySelector('.element__name')
+    cardName.textContent = nameValue
+    cardImage.src = linkValue
+    cardImage.addEventListener('click', () => {
+      popupCapture.src = cardImage.src
+      captureName.textContent = cardName.textContent
+      openPopup(popupImage)
+    })
+    const cardLike = cardTemplate.querySelector('.element__like')
+    cardLike.addEventListener('click', (evt) => {
+      evt.target.classList.toggle('element__like_active')
+    })
+    const cardDelete = cardTemplate.querySelector('.element__delete')
+    cardDelete.addEventListener('click', (evt) => {
+      evt.target.closest('.element').remove()
+    })
+    return cardTemplate
+}
+
+popupImageClose.addEventListener('click', () => {
+  closePopup(popupImage)
+})
+
+initialCards.forEach((card) => {
+    elements.append(addElements(card.name, card.link))
+})
+

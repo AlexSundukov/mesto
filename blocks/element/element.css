@@ -1,4 +1,6 @@
 .element {
     background-color: white;
     border-radius: 10px;
+    position: relative;
+    max-height: 361px;
 }

@@ -1,0 +1,6 @@
+.popup__window-image {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+}
