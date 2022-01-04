@@ -1,22 +1,22 @@
 .elements {
-    max-width: 880px;
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 282px);
-    gap: 17px;
-    padding-top: 47.25px;
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  gap: 17px;
+  padding-top: 47.25px;
 }
 
 @media screen and (max-width: 900px) {
-    .elements {
-        max-width: 581px;
-    }
+  .elements {
+    max-width: 581px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .elements {
-        max-width: 282px;
-        padding-top: 36px;
-    }
+  .elements {
+    max-width: 282px;
+    padding-top: 36px;
+  }
 }
