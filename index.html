@@ -9,11 +9,15 @@
 </head>
 
 <body class="page">
+
   <div class="page__container">
+
     <header class="header">
       <img src="./images/logo.svg" alt="Логотип" class="header__logo">
     </header>
+
     <main>
+
       <section class="profile">
         <div class="profile__container">
           <img src="./images/avatar.jpg" alt="Аватар профиля" class="profile__avatar">
@@ -27,13 +31,14 @@
         </div>
         <button type="button" aria-label="Редактирование контента профиля" class="profile__add-button"></button>
       </section>
-      <section class="elements">
 
-      </section>
+      <section class="elements"></section>
     </main>
+
     <footer class="footer">
       <p class="footer__copyright">&copy; 2021 Александр Сундуков</p>
     </footer>
+
     <template class="element-template">
       <article class="element">
         <button class="element__delete"></button>
@@ -44,31 +49,39 @@
         </div>
       </article>
     </template>
+
     <div class="popup popup_edit">
       <div class="popup__window">
         <button type="button" aria-label="Кнопка закрытия" class="popup__close popup__close_edit"></button>
-        <form name="edit-popup" class="popup__container popup__container_edit">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" name="name" placeholder="Введите имя профиля"
-            class="popup__change popup__change_edit_name">
-          <input type="text" name="description" placeholder="Введите описание профиля"
-            class="popup__change popup__change_edit_description">
-          <button type="submit" class="popup__button popup__button_save">Сохранить</button>
-        </form>
+        <form novalidate name="edit-popup" class="popup__form popup__form_edit">
+          <fieldset class="popup__set">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input id="name-input" minlength="2" maxlength="40" required type="text" name="name" placeholder="Введите имя профиля" class="popup__input popup__input_edit_name">
+            <span class="popup__span-error name-input-error"></span>
+            <input id="description-input" minlength="2" maxlength="200" required type="text" name="description" placeholder="Введите описание профиля" class="popup__input popup__input_edit_description">
+            <span class="popup__span-error description-input-error"></span>
+            <button type="submit" class="popup__button popup__button_save">Сохранить</button>
+          </fieldset>
+          </form>
       </div>
     </div>
+
     <div class="popup popup_add">
       <div class="popup__window">
         <button type="button" aria-label="Кнопка закрытия" class="popup__close popup__close_add"></button>
-        <form name="edit-popup" class="popup__container popup__container_add">
-          <h2 class="popup__title">Новое место</h2>
-          <input type="text" name="name" placeholder="Название" class="popup__change popup__change_add_place">
-          <input type="text" name="description" placeholder="Ссылка на картинку"
-            class="popup__change popup__change_add_image">
-          <button type="submit" class="popup__button popup__button_create">Создать</button>
+        <form novalidate name="edit-popup" class="popup__form popup__form_add">
+          <fieldset class="popup__set">
+            <h2 class="popup__title">Новое место</h2>
+            <input id="place-input" minlength="2" maxlength="30" required type="text" name="place" placeholder="Название" class="popup__input popup__input_add_place">
+            <span class="popup__span-error place-input-error"></span>
+            <input id="url-link-input" required type="url" name="url-link" placeholder="Ссылка на картинку" class="popup__input popup__input_add_image">
+            <span class="popup__span-error url-link-input-error"></span>
+            <button type="submit" class="popup__button popup__button_create">Создать</button>
+          </fieldset>
         </form>
       </div>
     </div>
+
     <div class="popup popup_image">
       <div class="popup__window-image">
         <button class="popup__close popup__close_image"></button>
@@ -76,8 +89,12 @@
         <h3 class="popup__caption-image"></h3>
       </div>
     </div>
+
   </div>
+
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/validate.js"></script>
+
 </body>
 
 </html>

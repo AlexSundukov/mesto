@@ -10,8 +10,13 @@
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__change/popup__change.css);
+@import url(../blocks/popup/__set/popup__set.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_error/popup__input_error.css);
+@import url(../blocks/popup/__span-error/popup__span-error.css);
+@import url(../blocks/popup/__span-error/_active/popup__span-error_active.css);
 @import url(../blocks/popup/__button/popup__button.css);
+@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
 /* Стили попапа карточки */
 @import url(../blocks/popup/__window-image/popup__window-image.css);
 @import url(../blocks/popup/__image/popup__image.css);

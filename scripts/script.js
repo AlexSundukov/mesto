@@ -1,20 +1,19 @@
 // Переменные edit
 const editButton = document.querySelector('.profile__edit-button');
 const popupSave = document.querySelector('.popup__button_save');
-const popupName = document.querySelector('.popup__change_edit_name');
-const popupDesc = document.querySelector('.popup__change_edit_description');
+const popupName = document.querySelector('.popup__input_edit_name');
+const popupDesc = document.querySelector('.popup__input_edit_description');
 const profileName = document.querySelector('.profile__name');
 const profileDesc = document.querySelector('.profile__description');
 const popupEdit = document.querySelector('.popup_edit');
-const popupEditContainer = document.querySelector('.popup__container_edit');
-const popupForm = document.querySelector('.popup__container_edit');
+const popupEditContainer = document.querySelector('.popup__form_edit');
 const popupEditClose = document.querySelector('.popup__close_edit');
 // Переменные add
 const addButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
-const popupAddContainer = document.querySelector('.popup__container_add');
-const popupAddPlace = document.querySelector('.popup__change_add_place');
-const popupAddImage = document.querySelector('.popup__change_add_image');
+const popupAddContainer = document.querySelector('.popup__form_add');
+const popupAddPlace = document.querySelector('.popup__input_add_place');
+const popupAddImage = document.querySelector('.popup__input_add_image');
 const popupAddClose = document.querySelector('.popup__close_add');
 // Переменные image
 const popupImage = document.querySelector('.popup_image');
@@ -51,9 +50,11 @@ const initialCards = [
   }
 ];
 
+
 // Изменение профиля
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEsc);
 }
 
 editButton.addEventListener('click', () => {
@@ -64,6 +65,7 @@ editButton.addEventListener('click', () => {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.addEventListener('keydown', handleEsc);
 }
 
 popupEditClose.addEventListener('click', () => {
@@ -137,4 +139,30 @@ popupImageClose.addEventListener('click', () => {
 initialCards.forEach((card) => {
   elements.append(addElement(card.name, card.link));
 })
+
+// Закрытие попапа по нажанитю на Esc
+const handleEsc = (evt) => {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupOpened);
+  }
+}
+
+// Закрытие попапа нажатием на оверлей
+document.addEventListener('click', (evt) => {
+  const popupBackgroundList = Array.from(document.querySelectorAll('.popup'));
+  popupBackgroundList.forEach((popupBackground) => {
+    if (evt.target === popupBackground) {
+      popupBackground.classList.remove('popup_opened');
+    }
+  });
+}); 
+
+
+
+
+
+
+
+
 
