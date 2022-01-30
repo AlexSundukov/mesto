@@ -8,7 +8,7 @@ const showError = (formElement, inputElement, errorMessage) => {
 // Скрытие ошибки
 const hideError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('pop__input_error');
+  inputElement.classList.remove('popup__input_error');
   errorElement.textContent = '';
   errorElement.classList.remove('popup__span-error_active');
 }
