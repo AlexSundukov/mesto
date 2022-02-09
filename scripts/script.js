@@ -88,6 +88,7 @@ function addContent(evt) {
   popupAddPlace.value = '';
   popupAddImage.value = '';
   popupAddButtonCreate.classList.add('popup__button_disabled');
+  popupAddButtonCreate.disabled = true;
   closePopup(popupAdd);
 }
 
