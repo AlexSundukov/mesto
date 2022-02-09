@@ -7,6 +7,7 @@ const profileDesc = document.querySelector('.profile__description');
 const popupEdit = document.querySelector('.popup_edit');
 const popupEditContainer = document.querySelector('.popup__form_edit');
 const popupEditClose = document.querySelector('.popup__close_edit');
+const popupEditButtonSave = document.querySelector('.popup__button_save');
 // Переменные add
 const addButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
@@ -74,6 +75,8 @@ function changeProfile(evt) {
   evt.preventDefault();
   profileName.textContent = popupName.value;
   profileDesc.textContent = popupDesc.value;
+  popupEditButtonSave.classList.add('popup__button_disabled');
+  popupEditButtonSave.disabled = true;
   closePopup(popupEdit);
 }
 
