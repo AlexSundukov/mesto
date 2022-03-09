@@ -1,4 +1,4 @@
-import { openPopup } from "./script.js";
+import { openPopup } from "./index.js.js";
 
 // Класс создания template - карточки 
 export default class Card {
