@@ -1,3 +1,6 @@
+// Импорты
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 // Переменные edit
 const editButton = document.querySelector('.profile__edit-button');
 const popupName = document.querySelector('.popup__input_edit_name');
@@ -51,12 +54,26 @@ const initialCards = [
   }
 ];
 
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__span-error_active'
+};
+
+const editValidator = new FormValidator(validationConfig, popupEditContainer);
+const addValidator = new FormValidator(validationConfig, popupAddContainer);
+
+editValidator.enableValidation();
+addValidator.enableValidation();
 
 // Изменение профиля
-function openPopup(popup) {
+export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleEsc);
-}
+};
 
 editButton.addEventListener('click', () => {
   openPopup(popupEdit);
@@ -67,7 +84,7 @@ editButton.addEventListener('click', () => {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEsc);
-}
+};
 
 
 
@@ -78,12 +95,34 @@ function changeProfile(evt) {
   popupEditButtonSave.classList.add('popup__button_disabled');
   popupEditButtonSave.disabled = true;
   closePopup(popupEdit);
-}
+};
 
 popupEditContainer.addEventListener('submit', changeProfile);
 
+// Открытие попапа add
+addButton.addEventListener('click', () => {
+  openPopup(popupAdd);
+});
+
+const addCards = (data, elements) => {
+  const newCard = new Card(data, elementTemplate);
+  elements.append(newCard.addCard());
+};
+
+const createNewCard = (evt) => {
+  evt.preventDefault();
+  addCards(popupAddPlace.value, popupAddImage.value);
+  elements.prepend(addCards(popupAddPlace.value, popupAddImage.value));
+  closePopup();
+};
+
+addCards(initialCards, elements);
+
+popupAddContainer.addEventListener('submit', createNewCard); 
+
+
 // Изменение контента профиля
-function addContent(evt) {
+/* function addContent(evt) {
   evt.preventDefault();
   newCardName = popupAddPlace.value;
   newCardLink = popupAddImage.value;
@@ -93,14 +132,7 @@ function addContent(evt) {
   popupAddButtonCreate.classList.add('popup__button_disabled');
   popupAddButtonCreate.disabled = true;
   closePopup(popupAdd);
-}
-
-popupAddContainer.addEventListener('submit', addContent);
-// Открытие попапа add
-addButton.addEventListener('click', () => {
-  openPopup(popupAdd);
-});
-
+};
 
 // Карточки и попап image
 function addElement(nameValue, linkValue) {
@@ -116,32 +148,32 @@ function addElement(nameValue, linkValue) {
     popupCapture.alt = cardImage.alt
     captureName.textContent = cardName.textContent;
     openPopup(popupImage);
-  }
+  };
   cardImage.addEventListener('click', openpopupImage)
   // Функция лайка
   const cardLike = cardTemplate.querySelector('.element__like');
   cardLike.addEventListener('click', (evt) => {
     evt.target.classList.toggle('element__like_active');
-  })
+  });
   // Функция удаление карточки
   const cardDelete = cardTemplate.querySelector('.element__delete');
   cardDelete.addEventListener('click', (evt) => {
     evt.target.closest('.element').remove();
-  })
+  });
 
   return cardTemplate;
-}
+};
 // Перебор массива карточек
 initialCards.forEach((card) => {
   elements.append(addElement(card.name, card.link));
-});
+}); */
 // Закрытие попапа по нажанитю на Esc
 const handleEsc = (evt) => {
   if (evt.key === 'Escape') {
     const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
-  }
-}
+  };
+};
 // Закрытие попапов(спасибо за интересный комментарий!)
 const popups = document.querySelectorAll('.popup');
   popups.forEach((popup) => {
@@ -151,6 +183,6 @@ const popups = document.querySelectorAll('.popup');
       }
       if (evt.target.classList.contains('popup__close')) {
         closePopup(popup)
-      }
+      };
     });
   });
