@@ -1,54 +1,50 @@
-import { openPopup } from "./index.js.js";
-
-// Класс создания template - карточки 
+// Импорт функции открытия попапа
+import { openPopup } from "./index.js";
+// Переменные image
+const popupPlace = document.querySelector('.popup_place');
+const popupImage = document.querySelector('.popup__image');
+const captureName = document.querySelector('.popup__caption-image');
+// Класс карточки
 export default class Card {
   constructor(data, cardSelector) {
-    this._titleCard = data.name;
-    this._linkCard = data.link;
-    this._cardSelector = cardSelector; 
+    this._name = data.name;
+    this._link = data.link;
+    this._cardSelector = cardSelector;
+  };
+// Получение шаблона карточки 
+  _getTemplate() {
+    const cardElement = document
+    .querySelector(this._cardSelector)
+    .content.querySelector('.element')
+    .cloneNode(true);
+    return cardElement;
+  };
+// Открытие попап image
+  _openPopupImage() {
+    popupImage.src = this._link;
+    popupImage.alt = this._name;
+    captureName.textContent = this._name;
+    openPopup(popupPlace);
+  };
+// Все слушатели кликов карточки
+  _setEventListeners() {
+    this._element.querySelector('.element__like').addEventListener('click', (evt) => {
+      evt.target.classList.toggle('element__like_active');
+    });
+    this._element.querySelector('.element__delete').addEventListener('click', () => {
+      this._element.remove();
+    });
+    this._element.querySelector('.element__image').addEventListener('click', () => {
+      this._openPopupImage();
+    });
   };
 // Создание карточки
-  _createCard() {
-    const cardTemplate = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
-    return cardTemplate;
-  };
-// Заполнение карточки 
-  _compilationCard() {
-    this._cardName.textContent = this._titleCard;
-    this._cardImage.src = this._linkCard;
-    this._cardImage.alt = this._titleCard;
-  };
-// Метод лайка
-  _like() {
-    this._cardLike.classList.toggle('element__like_active');
-  };
-// Метод удаления карточки 
-  _delete() {
-    this._cardElement.remove();
-  };
-// Открытие попап image 
-  _openPopupImage() {
-    this._popupCapture.src = this._cardImage.src;
-    this._popupCapture.alt = this._cardImage.src;
-    this._captureName.textContent = this._cardName.textContent;
-    openPopup();
-  };
-// Слушатели событий
-  _setEventListeners() {
-    this._cardLike.addEventListener('click', this._like);
-    this._cardDelete.addEventListener('click', this._delete);
-    this._cardImage.addEventListener('click', this._openPopupImage);
-  };
-// Вставка карточки 
   addCard() {
-    this._cardElement = this._createCard();
-    this._cardImage = this._cardElement.querySelector('.element__image');
-    this._cardName = this._cardElement.querySelector('.element__name');
-    this._cardLike = this._cardElement.querySelector('.element__like');
-    this._cardDelete = this._cardElement.querySelector('.element__delete');
-    this._compilationCard();
+    this._element = this._getTemplate();
+    this._element.querySelector('.element__image').src = this._link;
+    this._element.querySelector('.element__name').textContent = this._name;
     this._setEventListeners();
-    return this._cardElement;
+    return this._element;
   };
-}
+};
 

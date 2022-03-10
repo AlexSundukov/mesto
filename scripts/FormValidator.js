@@ -1,5 +1,4 @@
 // Класс валидиции формы 
-
 export default class FormValidator {
   constructor(config, formSelector) {
     this._formSelector = formSelector;

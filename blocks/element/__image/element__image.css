@@ -4,4 +4,5 @@
   object-fit: cover;
   height: 282px;
   filter: brightness(75%);
+  cursor: pointer;
 }
