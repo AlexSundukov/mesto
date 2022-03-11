@@ -94,7 +94,6 @@ initialCards.forEach((card) => {
 function createNewCard(evt) {
   evt.preventDefault();
   const newCard = {};
-  createCard(newCard);
   newCard.name = popupAddPlace.value;
   newCard.link = popupAddImage.value;
   elements.prepend(createCard(newCard));
