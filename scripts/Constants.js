@@ -1,4 +1,9 @@
-export const initialCards = [
+// Переменные image
+const popupPlace = document.querySelector('.popup_place');
+const popupImage = document.querySelector('.popup__image');
+const captureName = document.querySelector('.popup__caption-image');
+
+const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -24,3 +29,5 @@ export const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+export { popupPlace, popupImage, captureName, initialCards }

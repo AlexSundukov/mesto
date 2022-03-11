@@ -1,9 +1,6 @@
 // Импорт функции открытия попапа
-import { openPopup } from "./index.js";
-// Переменные image
-const popupPlace = document.querySelector('.popup_place');
-const popupImage = document.querySelector('.popup__image');
-const captureName = document.querySelector('.popup__caption-image');
+import { openPopup } from "./Utils.js";
+import { popupPlace, popupImage, captureName } from './Constants.js'
 // Класс карточки
 export default class Card {
   constructor(data, cardSelector) {
@@ -33,6 +30,7 @@ export default class Card {
     });
     this._element.querySelector('.element__delete').addEventListener('click', () => {
       this._element.remove();
+      this._element = null
     });
     this._element.querySelector('.element__image').addEventListener('click', () => {
       this._openPopupImage();
