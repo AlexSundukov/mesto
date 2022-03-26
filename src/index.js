@@ -88,6 +88,28 @@ popupAdd.setEventListeners();
 popupEdit.setEventListeners();
 
 popupImage.setEventListeners();
+
+import '../pages/index.css'
+
+const addButtonSvg = new URL('../images/add-button.svg', import.meta.url);
+const avatarJpg = new URL('../images/avatar.jpg', import.meta.url);
+const closeSvg = new URL('../images/close.svg', import.meta.url);
+const deleteSvg = new URL('../images/delete.svg', import.meta.url);
+const editButtonSvg = new URL('../images/edit-button.svg', import.meta.url);
+const likeActiveSvg = new URL('../images/like-active.svg', import.meta.url);
+const likeSvg = new URL('../images/like.svg', import.meta.url);
+const logoSvg = new URL('../images/logo.svg', import.meta.url);
+
+const images = [
+  { name: 'Add Button', link: addButtonSvg },
+  { name: 'Avatar', link: avatarJpg },
+  { name: 'Close Button', link: closeSvg },
+  { name: 'Delete Button', link: deleteSvg },
+  { name: 'Edit Button', link: editButtonSvg },
+  { name: 'Like Active', link: likeActiveSvg },
+  { name: 'Like', link: likeSvg },
+  { name: 'Logo', link: logoSvg},
+]
 /*
 // Открытие попапа edit
 editButton.addEventListener('click', () => {
