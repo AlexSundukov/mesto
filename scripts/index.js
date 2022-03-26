@@ -1,31 +1,14 @@
 // Импорты
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import { initialCards } from "./Constants.js";
-import { openPopup, closePopup } from "./Utils.js";
-// Попапы
-const popups = document.querySelectorAll('.popup');
-
-// Переменные edit
-const editButton = document.querySelector('.profile__edit-button');
-const popupName = document.querySelector('.popup__input_edit_name');
-const popupDesc = document.querySelector('.popup__input_edit_description');
-const profileName = document.querySelector('.profile__name');
-const profileDesc = document.querySelector('.profile__description');
-const popupEdit = document.querySelector('.popup_edit');
-const popupEditContainer = document.querySelector('.popup__form_edit');
-const popupEditButtonSave = document.querySelector('.popup__button_save');
-
-// Переменные add
-const addButton = document.querySelector('.profile__add-button');
-const popupAdd = document.querySelector('.popup_add');
-const popupAddContainer = document.querySelector('.popup__form_add');
-const popupAddPlace = document.querySelector('.popup__input_add_place');
-const popupAddImage = document.querySelector('.popup__input_add_image');
-const popupAddButtonCreate = document.querySelector('.popup__button_create');
-
-// Секция, в которую помещаются карточки 
-const elements = document.querySelector('.elements');
+import Card from "./classes/Card.js";
+import FormValidator from "./classes/FormValidator.js";
+import Section from "./classes/Section.js";
+import UserInfo from "./classes/UserInfo.js";
+import PopupWithForm from "./classes/PopupWithForm.js";
+import PopupWithImage from "./classes/PopupWithImage.js";
+import { editButton, popupName, popupDesc, 
+  profileName, profileDesc, popupEditContainer, 
+  popupEditButtonSave, elements, addButton,
+  popupAddContainer, popupAddPlace, popupAddImage, initialCards } from "./constants.js";
 
 // Код валидации 
 const validationConfig = {
@@ -43,6 +26,69 @@ const addValidator = new FormValidator(validationConfig, popupAddContainer);
 editValidator.enableValidation();
 addValidator.enableValidation();
 
+// Отображение карточек на странице 
+const createCard = (card) => {
+  const cardTemplate = new Card(card, '.element-template', handleClickCard);
+  const cardElement = cardTemplate.addCard();
+  return cardElement
+}
+
+const elementsSection = new Section({
+  items: initialCards, 
+  renderer: (element) => {
+    const elementSection = createCard(element);
+    elementsSection.addItem(elementSection);
+  }
+}, '.elements');
+
+elementsSection.renderElements();
+// Иформация профиля
+const userInfo = new UserInfo({
+  userName: profileName,
+  userDescription: profileDesc
+});
+// Функциональность попапа edit
+const popupEdit = new PopupWithForm('.popup_edit', () => {
+  userInfo.setUserInfo({
+    newUserName: popupName.value,
+    newUserDescription: popupDesc.value,
+  });
+  popupEdit.close();
+});
+
+editButton.addEventListener('click', () => {
+  const userProfile = userInfo.getUserInfo();  
+  popupName.value = userProfile.name;
+  popupDesc.value = userProfile.description;
+  popupEditButtonSave.classList.add('popup__button_disabled');
+  popupEditButtonSave.disabled = true;
+  popupEdit.open();
+});
+// Функциональность попапа add
+const popupAdd = new PopupWithForm('.popup_add', () => {
+  const newCard = {};
+  newCard.name = popupAddPlace.value;
+  newCard.link = popupAddImage.value;
+  elements.prepend(createCard(newCard));
+  popupAdd.close();
+});
+
+addButton.addEventListener('click', () => {
+  popupAdd.open();
+});
+// Попап image
+const popupImage = new PopupWithImage('.popup_place');
+
+function handleClickCard(name, link) {
+  popupImage.open(name, link)
+}
+// Слушатели кликов попапов 
+popupAdd.setEventListeners();
+
+popupEdit.setEventListeners();
+
+popupImage.setEventListeners();
+/*
 // Открытие попапа edit
 editButton.addEventListener('click', () => {
   popupName.value = profileName.textContent;
@@ -79,17 +125,6 @@ function changeProfile(evt) {
   closePopup(popupEdit);
 };
 
-const createCard = (card) => {
-  const cardTemplate = new Card(card, '.element-template');
-  const cardElement = cardTemplate.addCard();
-  return cardElement
-}
-
-initialCards.forEach((card) => {
-  elements.append(createCard(card));
-});
-
-
 // Создание новой карточки через попап add
 function createNewCard(evt) {
   evt.preventDefault();
@@ -103,4 +138,4 @@ function createNewCard(evt) {
 
 popupEditContainer.addEventListener('submit', changeProfile);
 
-popupAddContainer.addEventListener('submit', createNewCard); 
+popupAddContainer.addEventListener('submit', createNewCard); */

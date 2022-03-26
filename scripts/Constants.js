@@ -2,6 +2,26 @@
 const popupPlace = document.querySelector('.popup_place');
 const popupImage = document.querySelector('.popup__image');
 const captureName = document.querySelector('.popup__caption-image');
+// Попапы
+const popups = document.querySelectorAll('.popup');
+// Переменные edit
+const editButton = document.querySelector('.profile__edit-button');
+const popupName = document.querySelector('.popup__input_edit_name');
+const popupDesc = document.querySelector('.popup__input_edit_description');
+const profileName = document.querySelector('.profile__name');
+const profileDesc = document.querySelector('.profile__description');
+const popupEdit = document.querySelector('.popup_edit');
+const popupEditContainer = document.querySelector('.popup__form_edit');
+const popupEditButtonSave = document.querySelector('.popup__button_save');
+// Секция, в которую помещаются карточки 
+const elements = document.querySelector('.elements');
+// Переменные add
+const addButton = document.querySelector('.profile__add-button');
+const popupAdd = document.querySelector('.popup_add');
+const popupAddContainer = document.querySelector('.popup__form_add');
+const popupAddPlace = document.querySelector('.popup__input_add_place');
+const popupAddImage = document.querySelector('.popup__input_add_image');
+const popupAddButtonCreate = document.querySelector('.popup__button_create');
 
 const initialCards = [
   {
@@ -30,4 +50,10 @@ const initialCards = [
   }
 ];
 
-export { popupPlace, popupImage, captureName, initialCards }
+export { popupPlace, popupImage, captureName, 
+  popups, editButton, popupName, 
+  popupDesc, profileName, profileDesc, 
+  popupEdit, popupEditContainer, popupEditButtonSave, 
+  elements, addButton, popupAdd, 
+  popupAddContainer, popupAddPlace, popupAddImage, 
+  popupAddButtonCreate, initialCards }

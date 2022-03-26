@@ -1,13 +1,11 @@
-// Импорт функции открытия попапа
-import { openPopup } from "./Utils.js";
-import { popupPlace, popupImage, captureName } from './Constants.js'
 // Класс карточки
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleClickCard) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-  };
+    this._handleClickCard = handleClickCard;
+  }
 // Получение шаблона карточки 
   _getTemplate() {
     const cardElement = document
@@ -15,27 +13,28 @@ export default class Card {
     .content.querySelector('.element')
     .cloneNode(true);
     return cardElement;
-  };
-// Открытие попап image
-  _openPopupImage() {
-    popupImage.src = this._link;
-    popupImage.alt = this._name;
-    captureName.textContent = this._name;
-    openPopup(popupPlace);
-  };
+  }
+// Метод лайка
+  _like() {
+    this._element.querySelector('.element__like').classList.toggle('element__like_active');
+  }
+// Метод удаление карточки
+  _delete() {
+    this._element.remove();
+    this._element = null
+  }
 // Все слушатели кликов карточки
   _setEventListeners() {
-    this._element.querySelector('.element__like').addEventListener('click', (evt) => {
-      evt.target.classList.toggle('element__like_active');
-    });
+    this._element.querySelector('.element__like').addEventListener('click', () => {
+      this._like();
+    })
     this._element.querySelector('.element__delete').addEventListener('click', () => {
-      this._element.remove();
-      this._element = null
-    });
+      this._delete();
+    })
     this._element.querySelector('.element__image').addEventListener('click', () => {
-      this._openPopupImage();
+      this._handleClickCard(this._name, this._link)
     });
-  };
+  }
 // Создание карточки
   addCard() {
     this._element = this._getTemplate();
@@ -43,6 +42,5 @@ export default class Card {
     this._element.querySelector('.element__name').textContent = this._name;
     this._setEventListeners();
     return this._element;
-  };
-};
-
+  }
+}
