@@ -88,76 +88,25 @@ popupAdd.setEventListeners();
 popupEdit.setEventListeners();
 
 popupImage.setEventListeners();
-
-import '../pages/index.css'
-
-const addButtonSvg = new URL('../images/add-button.svg', import.meta.url);
-const avatarJpg = new URL('../images/avatar.jpg', import.meta.url);
-const closeSvg = new URL('../images/close.svg', import.meta.url);
-const deleteSvg = new URL('../images/delete.svg', import.meta.url);
-const editButtonSvg = new URL('../images/edit-button.svg', import.meta.url);
-const likeActiveSvg = new URL('../images/like-active.svg', import.meta.url);
-const likeSvg = new URL('../images/like.svg', import.meta.url);
-const logoSvg = new URL('../images/logo.svg', import.meta.url);
+// Webpack
+const addButtonImage = new URL('../images/add-button.svg', import.meta.url);
+const avatarImage = new URL('../images/avatar.jpg', import.meta.url);
+const closeButtonImage = new URL('../images/close.svg', import.meta.url);
+const deleteButtonImage = new URL('../images/delete.svg', import.meta.url);
+const editButtonImage = new URL('../images/edit-button.svg', import.meta.url);
+const likeActiveImage = new URL('../images/like-active.svg', import.meta.url);
+const likeImage = new URL('../images/like.svg', import.meta.url);
+const logoImage = new URL('../images/logo.svg', import.meta.url);
 
 const images = [
-  { name: 'Add Button', link: addButtonSvg },
-  { name: 'Avatar', link: avatarJpg },
-  { name: 'Close Button', link: closeSvg },
-  { name: 'Delete Button', link: deleteSvg },
-  { name: 'Edit Button', link: editButtonSvg },
-  { name: 'Like Active', link: likeActiveSvg },
-  { name: 'Like', link: likeSvg },
-  { name: 'Logo', link: logoSvg},
-]
-/*
-// Открытие попапа edit
-editButton.addEventListener('click', () => {
-  popupName.value = profileName.textContent;
-  popupDesc.value = profileDesc.textContent;
-  popupEditButtonSave.classList.add('popup__button_disabled');
-  popupEditButtonSave.disabled = true;
-  openPopup(popupEdit);
-});
+  { name: 'Add button', link: addButtonImage},
+  { name: 'Avatar', link: avatarImage},
+  { name: 'Close button', link: closeButtonImage},
+  { name: 'Delete button', link: deleteButtonImage},
+  { name: 'Edit button', link: editButtonImage},
+  { name: 'Like active', link: likeActiveImage},
+  { name: 'Like image', link: likeImage},
+  { name: 'Logo image', link: logoImage},
+];
 
-// Открытие попапа add
-addButton.addEventListener('click', () => {
-  popupAddButtonCreate.classList.add('popup__button_disabled');
-  popupAddButtonCreate.disabled = true;
-  openPopup(popupAdd);
-});
-
-// Закрытие всех попапов
-popups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup)
-    }
-    if (evt.target.classList.contains('popup__close')) {
-      closePopup(popup)
-    };
-  });
-});
-
-// Функция изменения данных профиля
-function changeProfile(evt) {
-  evt.preventDefault();
-  profileName.textContent = popupName.value;
-  profileDesc.textContent = popupDesc.value;
-  closePopup(popupEdit);
-};
-
-// Создание новой карточки через попап add
-function createNewCard(evt) {
-  evt.preventDefault();
-  const newCard = {};
-  newCard.name = popupAddPlace.value;
-  newCard.link = popupAddImage.value;
-  elements.prepend(createCard(newCard));
-  popupAddContainer.reset();
-  closePopup(popupAdd);
-};
-
-popupEditContainer.addEventListener('submit', changeProfile);
-
-popupAddContainer.addEventListener('submit', createNewCard); */
+import '../pages/index.css'
