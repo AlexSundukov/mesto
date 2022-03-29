@@ -46,6 +46,10 @@ export default class FormValidator {
       this._buttonElement.disabled = false;
     }
   }
+  disableButton() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  }
 // Применение стилей
   _setEventListeners() {
     this._inputList = Array.from(this._formSelector.querySelectorAll(this._inputSelector));

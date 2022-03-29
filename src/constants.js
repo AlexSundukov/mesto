@@ -50,10 +50,19 @@ const initialCards = [
   }
 ];
 
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__span-error_active'
+};
+
 export { popupPlace, popupImage, captureName, 
   popups, editButton, popupName, 
   popupDesc, profileName, profileDesc, 
   popupEdit, popupEditContainer, popupEditButtonSave, 
   elements, addButton, popupAdd, 
   popupAddContainer, popupAddPlace, popupAddImage, 
-  popupAddButtonCreate, initialCards }
+  popupAddButtonCreate, initialCards, validationConfig }

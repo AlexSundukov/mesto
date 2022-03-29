@@ -1,25 +1,16 @@
 // Импорты
-import Card from "./classes/Card.js";
-import FormValidator from "./classes/FormValidator.js";
-import Section from "./classes/Section.js";
-import UserInfo from "./classes/UserInfo.js";
-import PopupWithForm from "./classes/PopupWithForm.js";
-import PopupWithImage from "./classes/PopupWithImage.js";
+import Card from "./components/Card.js";
+import FormValidator from "./components/FormValidator.js";
+import Section from "./components/Section.js";
+import UserInfo from "./components/UserInfo.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import PopupWithImage from "./components/PopupWithImage.js";
 import { editButton, popupName, popupDesc, 
   profileName, profileDesc, popupEditContainer, 
-  popupEditButtonSave, elements, addButton,
-  popupAddContainer, popupAddPlace, popupAddImage, initialCards } from "./constants.js";
+  addButton,popupAddContainer, popupAddPlace, 
+  popupAddImage, initialCards, validationConfig } from "./constants.js";
 
 // Код валидации 
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_error',
-  errorClass: 'popup__span-error_active'
-};
-
 const editValidator = new FormValidator(validationConfig, popupEditContainer);
 const addValidator = new FormValidator(validationConfig, popupAddContainer);
 
@@ -60,20 +51,21 @@ editButton.addEventListener('click', () => {
   const userProfile = userInfo.getUserInfo();  
   popupName.value = userProfile.name;
   popupDesc.value = userProfile.description;
-  popupEditButtonSave.classList.add('popup__button_disabled');
-  popupEditButtonSave.disabled = true;
+  editValidator.disableButton();
   popupEdit.open();
 });
 // Функциональность попапа add
 const popupAdd = new PopupWithForm('.popup_add', () => {
-  const newCard = {};
-  newCard.name = popupAddPlace.value;
-  newCard.link = popupAddImage.value;
-  elements.prepend(createCard(newCard));
+  const newCard = { 
+    name: popupAddPlace.value,
+    link: popupAddImage.value,
+  };
+  elementsSection.addItem(createCard(newCard));
   popupAdd.close();
 });
 
 addButton.addEventListener('click', () => {
+  addValidator.disableButton();
   popupAdd.open();
 });
 // Попап image

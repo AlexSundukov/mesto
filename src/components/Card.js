@@ -39,6 +39,7 @@ export default class Card {
   addCard() {
     this._element = this._getTemplate();
     this._element.querySelector('.element__image').src = this._link;
+    this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__name').textContent = this._name;
     this._setEventListeners();
     return this._element;
