@@ -8,7 +8,6 @@ export default class UserInfo {
       name: this._name.textContent,
       description: this._description.textContent,
     }
-    return userData
   }
   setUserInfo({newUserName, newUserDescription}) {
     this._name.textContent = newUserName;
