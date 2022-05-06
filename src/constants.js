@@ -13,6 +13,8 @@ const profileDesc = document.querySelector('.profile__description');
 const popupEdit = document.querySelector('.popup_edit');
 const popupEditContainer = document.querySelector('.popup__form_edit');
 const popupEditButtonSave = document.querySelector('.popup__button_save');
+const avatarButton = document.querySelector('.profile__avatar-button');
+const inputs = document.querySelectorAll('.popup__input');
 // Секция, в которую помещаются карточки 
 const elements = document.querySelector('.elements');
 // Переменные add
@@ -85,4 +87,5 @@ export { popupPlace, popupImage, captureName,
   popupEdit, popupEditContainer, popupEditButtonSave, 
   elements, addButton, popupAdd, 
   popupAddContainer, popupAddPlace, popupAddImage, 
-  popupAddButtonCreate, initialCards, validationConfig }
+  popupAddButtonCreate, initialCards, validationConfig,
+  avatarButton, inputs }
