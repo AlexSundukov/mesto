@@ -9,12 +9,12 @@ import PopupWithConfirmDelete from "./components/PopupWithConfirmDelete.js";
 import { api } from "./components/Api.js";
 import { editButton, popupName, popupDesc, popupEditContainer, 
   addButton,popupAddContainer, validationConfig, 
-  avatarButton, popupAvatarEdit} from "./constants.js";
+  avatarButton, popupEditAvatarContainer} from "./constants.js";
 
 // Код валидации 
 const editValidator = new FormValidator(validationConfig, popupEditContainer);
 const addValidator = new FormValidator(validationConfig, popupAddContainer);
-const avatarValidator = new FormValidator(validationConfig, popupAvatarEdit);
+const avatarValidator = new FormValidator(validationConfig, popupEditAvatarContainer);
 
 editValidator.enableValidation();
 addValidator.enableValidation();
@@ -42,21 +42,21 @@ Promise.all([api.getProfile(), api.getInitialCards()])
   console.log(err);
 });
 // Код попапа image 
-const popupWithImage = new PopupWithImage('.popup_place');
+const popupImage = new PopupWithImage('.popup_place');
 
-popupWithImage.setEventListeners();
+popupImage.setEventListeners();
 
 const handelCardClick = (name, link) => {
-  popupWithImage.open(name, link);
+  popupImage.open(name, link);
 }
 // Код попапа confirm 
-const popupWithFormDeleteConfirm = new PopupWithConfirmDelete('.popup_confirm-delete', handleDeleteClick);
+const popupConfirm = new PopupWithConfirmDelete('.popup_confirm-delete', handleDeleteClick);
 
-popupWithFormDeleteConfirm.setEventListeners();
+popupConfirm.setEventListeners();
 
 const handleDeleteClick = (id, card) => {
-  popupWithFormDeleteConfirm.open();
-  popupWithFormDeleteConfirm.changeSubmitHandler(() => {
+  popupConfirm.open();
+  popupConfirm.changeSubmitHandler(() => {
     handleDeleteConfirm(id, card);
   });
 }
@@ -65,34 +65,34 @@ const handleDeleteConfirm = (id, card) => {
   api.deleteCard(id)
   .then((res) => {
     card.delete(res);
-    popupWithFormDeleteConfirm.close();
+    popupConfirm.close();
   })
   .catch((err) => {
     console.log(err);
   })
 }
 // Код попапа avatar
-const popupWithFormChangeAvatar = new PopupWithForm('.popup_edit-avatar', handleAvatarClick);
+const popupEditAvatar = new PopupWithForm('.popup_edit-avatar', editAvatarSubmit);
 
-popupWithFormChangeAvatar.setEventListeners();
+popupEditAvatar.setEventListeners();
 
-const handleAvatarClick = (data) => {
-  popupWithFormChangeAvatar.renderLoading(true);
+const editAvatarSubmit = (data) => {
+  popupEditAvatar.renderLoading(true);
   api.changeAvatar(data.src)
   .then((res) => {
     userInfo.setUserInfo(res);
-    popupWithFormChangeAvatar.close();
+    popupEditAvatar.close();
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
-    popupWithFormChangeAvatar.renderLoading(false);
+    popupEditAvatar.renderLoading(false);
   })
 }
 
 avatarButton.addEventListener('click', () => {
-  popupWithFormChangeAvatar.open();
+  popupEditAvatar.open();
 });
 // Код лайка
 const handleLikeClick = (id, card) => {
@@ -126,22 +126,22 @@ const createCard = (data, cardSelector, id) => {
   return cardElement;
 }
 // Код поапа edit 
-const popupWithFormEdit = new PopupWithForm('.popup_edit', editSubmit);
+const popupEdit = new PopupWithForm('.popup_edit', editSubmit);
 
-popupWithFormEdit.setEventListeners();
+popupEdit.setEventListeners();
 
 const editSubmit = (data) => {
-  popupWithFormEdit.renderLoading(true);
+  popupEdit.renderLoading(true);
   api.editProfile(data.name, data.about)
   .then((res) => {
     userInfo.setUserInfo(res);
-    popupWithFormEdit.close();
+    popupEdit.close();
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
-    popupWithFormEdit.renderLoading(false);
+    popupEdit.renderLoading(false);
   })
 }
 
@@ -150,31 +150,31 @@ editButton.addEventListener('click', () => {
   popupName.value = userProfile.name;
   popupDesc.value = userProfile.about;
   editValidator.disableButton();
-  popupWithFormEdit.open();
+  popupEdit.open();
 });
 // Код попапа add 
-const popupWithFormAdd = new PopupWithForm('.popup_add', addSubmit);
+const popupAdd = new PopupWithForm('.popup_add', addSubmit);
 
-popupWithFormAdd.setEventListeners();
+popupAdd.setEventListeners();
 
 const addSubmit = (data) => {
-  popupWithFormAdd.renderLoading(true);
+  popupAdd.renderLoading(true);
   api.addCard(data.name, data.link)
   .then((res) => {
     cards.addItem(createCard(res, '.element-template', userId));
-    popupWithFormAdd.close();
+    popupAdd.close();
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
-    popupWithFormAdd.renderLoading(false);
+    popupAdd.renderLoading(false);
   })
 }
 
 addButton.addEventListener('click', () => {
   addValidator.disableButton();
-  popupWithFormAdd.open();
+  popupAdd.open();
 });
 // Секция карточек
 const cards = new Section(
