@@ -98,9 +98,11 @@
     <section class="popup popup_confirm-delete">
       <div class="popup__window">
         <button type="button" aria-label="Кнопка закрытия" class="popup__close"></button>
-        <form novalidate class="popup__form popup__form_confirm">
-          <h2 class="popup__title">Вы уверены?</h2>
-          <button type="submit" class="popup__button popup__button_confirm">Да</button>
+        <form novalidate name="edit-popup" class="popup__form popup__form_confirm">
+          <fieldset class="popup__set">
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button type="submit" class="popup__button popup__button_create">Да</button>
+          </fieldset>
         </form>
       </div>
     </section>

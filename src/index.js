@@ -29,6 +29,18 @@ const userInfo = new UserInfo(
     avatarSelector: '.profile__avatar',
   }
 );
+// Секция карточек
+const cards = new Section(
+  {
+    items: [],
+    renderer: (item, id) => {
+      cards.addItem(createCard(item, '.element-template', id));
+    }
+  },
+  '.elements'
+);
+
+cards.renderItems();
 // Промисс 
 Promise.all([api.getProfile(), api.getInitialCards()])
 .then(([userData, cardSet]) => {
@@ -42,18 +54,10 @@ Promise.all([api.getProfile(), api.getInitialCards()])
   console.log(err);
 });
 // Код попапа image 
-const popupImage = new PopupWithImage('.popup_place');
-
-popupImage.setEventListeners();
-
 const handelCardClick = (name, link) => {
   popupImage.open(name, link);
 }
 // Код попапа confirm 
-const popupConfirm = new PopupWithConfirmDelete('.popup_confirm-delete', handleDeleteClick);
-
-popupConfirm.setEventListeners();
-
 const handleDeleteClick = (id, card) => {
   popupConfirm.open();
   popupConfirm.changeSubmitHandler(() => {
@@ -72,10 +76,6 @@ const handleDeleteConfirm = (id, card) => {
   })
 }
 // Код попапа avatar
-const popupEditAvatar = new PopupWithForm('.popup_edit-avatar', editAvatarSubmit);
-
-popupEditAvatar.setEventListeners();
-
 const editAvatarSubmit = (data) => {
   popupEditAvatar.renderLoading(true);
   api.changeAvatar(data.src)
@@ -126,10 +126,6 @@ const createCard = (data, cardSelector, id) => {
   return cardElement;
 }
 // Код поапа edit 
-const popupEdit = new PopupWithForm('.popup_edit', editSubmit);
-
-popupEdit.setEventListeners();
-
 const editSubmit = (data) => {
   popupEdit.renderLoading(true);
   api.editProfile(data.name, data.about)
@@ -153,10 +149,6 @@ editButton.addEventListener('click', () => {
   popupEdit.open();
 });
 // Код попапа add 
-const popupAdd = new PopupWithForm('.popup_add', addSubmit);
-
-popupAdd.setEventListeners();
-
 const addSubmit = (data) => {
   popupAdd.renderLoading(true);
   api.addCard(data.name, data.link)
@@ -176,17 +168,20 @@ addButton.addEventListener('click', () => {
   addValidator.disableButton();
   popupAdd.open();
 });
-// Секция карточек
-const cards = new Section(
-  {
-    items: [],
-    renderer: (item, id) => {
-      cards.addItem(createCard(item, '.element-template', id));
-    }
-  },
-  '.elements'
-);
+// Попапы и слушатели кликов 
+const popupEdit = new PopupWithForm('.popup_edit', editSubmit);
+popupEdit.setEventListeners();
 
-cards.renderItems();
+const popupAdd = new PopupWithForm('.popup_add', addSubmit);
+popupAdd.setEventListeners();
+
+const popupEditAvatar = new PopupWithForm('.popup_edit-avatar', editAvatarSubmit);
+popupEditAvatar.setEventListeners();
+
+const popupConfirm = new PopupWithConfirmDelete('.popup_confirm-delete', handleDeleteClick);
+popupConfirm.setEventListeners();
+
+const popupImage = new PopupWithImage('.popup_place');
+popupImage.setEventListeners();
 // Webpack
 import '../pages/index.css'
