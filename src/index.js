@@ -60,7 +60,7 @@ const handelCardClick = (name, link) => {
 // Код попапа confirm 
 const handleDeleteClick = (id, card) => {
   popupConfirm.open();
-  popupConfirm.changeSubmitHandler(() => {
+  popupConfirm._submitForm(() => {
     handleDeleteConfirm(id, card);
   });
 }
