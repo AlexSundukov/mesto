@@ -107,11 +107,14 @@
 
     <section class="popup popup_edit-avatar">
       <div class="popup__window">
-        <button type="button" aria-label="Кнопка закрытия" class="popup__close"></button>
-        <form novalidate class="popup__form popup__form_edit-avatar">
-          <h2 class="popup__title">Обновить аватар</h2>
-          <input id="url-link-input" required type="url" name="url-link" placeholder="Ссылка на картинку" class="popup__input popup__input_add_image">
-          <button type="submit" class="popup__button popup__button_save-avatar">Сохранить</button>
+        <button type="button" aria-label="Кнопка закрытия" class="popup__close popup__close_edit-avatar"></button>
+        <form novalidate name="edit-popup" class="popup__form popup__form_edit-avatar">
+          <fieldset class="popup__set">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <input id="url-link-input" required type="url" name="url-link" placeholder="Ссылка на картинку" class="popup__input popup__input_edit-avatar">
+            <span class="popup__span-error url-link-input-error"></span>
+            <button type="submit" class="popup__button popup__button_save-avatar">Сохранить</button>
+          </fieldset>
         </form>
       </div>
     </section>

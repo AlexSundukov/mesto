@@ -14,6 +14,9 @@ const popupEdit = document.querySelector('.popup_edit');
 const popupEditContainer = document.querySelector('.popup__form_edit');
 const popupEditButtonSave = document.querySelector('.popup__button_save');
 const avatarButton = document.querySelector('.profile__avatar-button');
+// Переменные edit-avatar
+const popupAvatarEdit = document.querySelector('.popup__form_edit-avatar');
+// Инпуты полей
 const inputs = document.querySelectorAll('.popup__input');
 // Секция, в которую помещаются карточки 
 const elements = document.querySelector('.elements');
@@ -88,4 +91,4 @@ export { popupPlace, popupImage, captureName,
   elements, addButton, popupAdd, 
   popupAddContainer, popupAddPlace, popupAddImage, 
   popupAddButtonCreate, initialCards, validationConfig,
-  avatarButton, inputs }
+  avatarButton, inputs, popupAvatarEdit }
