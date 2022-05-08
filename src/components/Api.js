@@ -3,29 +3,29 @@ class Api {
     this._headers = headers;
     this._baseUrl = baseUrl;
   }
-  // Загрузка информации о пользователе с сервера
+  //Загрузка информации о пользователе с сервера
   getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     }).then(res => {
-        if (res.ok) {
-          return res.json();
-        }
+      if (res.ok) {
+        return res.json();
+      }
         return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
-  // Загрузка карточек с сервера
+  //Загрузка карточек с сервера
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     }).then(res => {
-        if (res.ok) {
-          return res.json();
-        }
+      if (res.ok) {
+        return res.json();
+      }
         return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
-  // Редактирование профиля
+  //Редактирование профиля
   editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -41,7 +41,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
-  // Добавление новой карточки
+  //Добавление новой карточки
   addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
@@ -57,7 +57,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
-  // Удаление карточки 
+  //Удаление карточки 
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
@@ -91,9 +91,9 @@ class Api {
           return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
-    });
+      });
   }
-  // Обновление аватара пользователя
+  //Обновление аватара пользователя
   changeAvatar(src) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
@@ -109,7 +109,7 @@ class Api {
       });
   }
 }
-// api 
+// api
 export const api = new Api({
   baseUrl: ' https://mesto.nomoreparties.co/v1/cohort-40',
   headers: {

@@ -15,11 +15,8 @@ const popupEditContainer = document.querySelector('.popup__form_edit');
 const popupEditButtonSave = document.querySelector('.popup__button_save');
 const avatarButton = document.querySelector('.profile__avatar-button');
 // Переменные edit-avatar
-const popupEditAvatarContainer = document.querySelector('.popup__form_edit-avatar');
-// Инпуты полей
-const inputs = document.querySelectorAll('.popup__input');
-// Секция, в которую помещаются карточки 
-const elements = document.querySelector('.elements');
+const popupAvatarEdit = document.querySelector('.popup__form_edit-avatar');
+
 // Переменные add
 const addButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
@@ -48,33 +45,6 @@ const images = [
   { name: 'Logo image', link: logoImage},
 ];
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -87,8 +57,7 @@ const validationConfig = {
 export { popupPlace, popupImage, captureName, 
   popups, editButton, popupName, 
   popupDesc, profileName, profileDesc, 
-  popupEdit, popupEditContainer, popupEditButtonSave, 
-  elements, addButton, popupAdd, 
+  popupEdit, popupEditContainer, popupEditButtonSave,  addButton, popupAdd, 
   popupAddContainer, popupAddPlace, popupAddImage, 
-  popupAddButtonCreate, initialCards, validationConfig,
-  avatarButton, inputs, popupEditAvatarContainer }
+  popupAddButtonCreate, validationConfig,
+  avatarButton, popupAvatarEdit }
