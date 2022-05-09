@@ -94,12 +94,12 @@ class Api {
       });
   }
   //Обновление аватара пользователя
-  changeAvatar(src) {
+  editAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: src
+        avatar
       })
     }).then(res => {
         if (res.ok) {

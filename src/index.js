@@ -46,7 +46,7 @@ Promise.all([api.getProfile(), api.getInitialCards()])
   .then(([userData, cardList]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
-    cardList.forEach(data => {
+    cardList.forEach((data) => {
       cards.addItem(createCard(data, '.element-template', userId))
     })
   })
@@ -61,7 +61,7 @@ const handleCardClick = (name, link) => {
 // Код попапа confirm
 const handleDeleteClick = (id, card) => {
   popupConfirm.open();
-  popupConfirm.changeSubmitHandler(() => {handleDeleteConfirm(id, card)});
+  popupConfirm.submitHandler(() => {handleDeleteConfirm(id, card)});
 }
 
 
@@ -80,7 +80,7 @@ const handleDeleteConfirm = (id, card) => {
 const editSubmit = (data) => {
   popupEdit.renderLoading(true);
   api.editProfile(data.name, data.about)
-    .then(res => {
+    .then((res) => {
       userInfo.setUserInfo(res);
       popupEdit.close();
     })
@@ -104,7 +104,7 @@ editButton.addEventListener('click', () => {
 const addSubmit = (data) => {
   popupAdd.renderLoading(true);
   api.addCard(data.name, data.link)
-    .then(res => {
+    .then((res) => {
       cards.addItem(createCard(res, '.element-template', userId));
       popupAdd.close();
     })
@@ -123,8 +123,8 @@ addButton.addEventListener('click', () => {
 // Код попапа edit-avatar
 const editAvatarSubmit = (data) => {
   popupEditAvatar.renderLoading(true);
-  api.changeAvatar(data.src)
-    .then(res => {
+  api.editAvatar(data.avatar)
+    .then((res) => {
       userInfo.setUserInfo(res);
       popupEditAvatar.close();
     })
@@ -144,7 +144,7 @@ avatarButton.addEventListener('click', function() {
 const handleLikeClick = (id, card) => {
   if (card.isLiked()) {
     api.deleteLike(id)
-    .then(res => {
+    .then((res) => {
       card.setLikes(res.likes)
     })
     .catch((err) => {
@@ -153,7 +153,7 @@ const handleLikeClick = (id, card) => {
   }
   else {
     api.addLike(id)
-    .then(res => {
+    .then((res) => {
       card.setLikes(res.likes)
     })
     .catch((err) => {

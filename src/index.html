@@ -63,7 +63,7 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <input id="name-input" minlength="2" maxlength="40" required type="text" name="name" placeholder="Введите имя профиля" class="popup__input popup__input_edit_name">
             <span class="popup__span-error name-input-error"></span>
-            <input id="description-input" minlength="2" maxlength="200" required type="text" name="description" placeholder="Введите описание профиля" class="popup__input popup__input_edit_description">
+            <input id="description-input" minlength="2" maxlength="200" required type="text" name="about" placeholder="Введите описание профиля" class="popup__input popup__input_edit_description">
             <span class="popup__span-error description-input-error"></span>
             <button type="submit" class="popup__button popup__button_save">Сохранить</button>
           </fieldset>
@@ -77,9 +77,9 @@
         <form novalidate name="edit-popup" class="popup__form popup__form_add">
           <fieldset class="popup__set">
             <h2 class="popup__title">Новое место</h2>
-            <input id="place-input" minlength="2" maxlength="30" required type="text" name="place" placeholder="Название" class="popup__input popup__input_add_place">
+            <input id="place-input" minlength="2" maxlength="30" required type="text" name="name" placeholder="Название" class="popup__input popup__input_add_place">
             <span class="popup__span-error place-input-error"></span>
-            <input id="url-link-input" required type="url" name="url-link" placeholder="Ссылка на картинку" class="popup__input popup__input_add_image">
+            <input id="url-link-input" required type="url" name="link" placeholder="Ссылка на картинку" class="popup__input popup__input_add_image">
             <span class="popup__span-error url-link-input-error"></span>
             <button type="submit" class="popup__button popup__button_create">Создать</button>
           </fieldset>
@@ -113,7 +113,7 @@
         <form novalidate name="edit-popup" class="popup__form popup__form_edit-avatar">
           <fieldset class="popup__set">
             <h2 class="popup__title">Обновить аватар</h2>
-            <input id="url-link-input" required type="url" name="url-link" placeholder="Ссылка на картинку" class="popup__input popup__input_edit-avatar">
+            <input id="url-link-input" required type="url" name="avatar" placeholder="Ссылка на картинку" class="popup__input popup__input_edit-avatar">
             <span class="popup__span-error url-link-input-error"></span>
             <button type="submit" class="popup__button popup__button_save-avatar">Сохранить</button>
           </fieldset>

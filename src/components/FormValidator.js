@@ -30,7 +30,7 @@ export default class FormValidator {
       this._hideError(inputElement);
     }
   }
-//Функция hasInvalidInput возвращает true или false в зависимости от того, есть ли в массиве inputList невалидное поле
+// Функция hasInvalidInput возвращает true или false в зависимости от того, есть ли в массиве inputList невалидное поле
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
