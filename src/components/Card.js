@@ -54,7 +54,7 @@ export default class Card {
     });
   }
   // Создание карточки
-  addCard() {
+  createCard() {
       this._element = this._getTemplate();
       this._elementImage = this._element.querySelector('.element__image');
       this._elementImage.src = this._link;

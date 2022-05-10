@@ -1,3 +1,5 @@
+// Webpack
+import '../pages/index.css'
 // Импорты
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
@@ -46,6 +48,7 @@ Promise.all([api.getProfile(), api.getInitialCards()])
   .then(([userData, cardList]) => {
     userInfo.setUserInfo(userData);
     userId = userData._id;
+    cardList.reverse();
     cardList.forEach((data) => {
       cards.addItem(createCard(data, '.element-template', userId))
     })
@@ -170,7 +173,7 @@ const createCard = (data, template, id) => {
     handleLikeClick }, 
     template,
     id);
-  const cardElement = card.addCard();
+  const cardElement = card.createCard();
   return cardElement;
 };
 
@@ -189,5 +192,4 @@ popupEdit.setEventListeners();
 
 const popupImage = new PopupWithImage('.popup_place');
 popupImage.setEventListeners();
-// Webpack
-import '../pages/index.css'
+
