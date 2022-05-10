@@ -1,5 +1,5 @@
 // Webpack
-import '../pages/index.css'
+import './pages/index.css'
 // Импорты
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
